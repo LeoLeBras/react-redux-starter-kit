@@ -58,7 +58,8 @@ module.exports = {
         new NyanProgressPlugin(),
         new ExtractTextPlugin('style.css', {disable: !production}),
         new webpack.DefinePlugin({
-           __PROD__: production
+           __PROD__: production,
+           __DEV__: !production
          }),
     ].concat(
         production ? [
