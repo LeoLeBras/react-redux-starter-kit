@@ -1,8 +1,4 @@
 {
   "stage": 0,
-  "env": {
-    "production": {
-      "optional": ["optimisation", "minification"]
-    }
-  }
+  "env": {}
 }

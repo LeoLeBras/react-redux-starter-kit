@@ -51,7 +51,7 @@ module.exports = {
             ]
         },{
             test: /.*\.(ttf|woff)$/i,
-            loader: 'file?name=[name].[ext]'
+            loader: 'url?limit=150000&name=[name].[ext]'
         }]
     },
     plugins: [
