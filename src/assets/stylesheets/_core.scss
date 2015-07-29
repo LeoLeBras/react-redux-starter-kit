@@ -1,0 +1,25 @@
+/**
+ ** _core.scss file **
+ *
+ * Léo Le Bras
+ * http://leolebras.com/
+ *
+ * Work with Sass
+ * http://sass-lang.com/
+ *
+ * Copyright 2012 - 2015
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Date of creation : 2012-09-05
+ * Last updated: 2015-27-07
+ */
+
+@import "themes/colors";
+@import "themes/fonts";
+@import "themes/default";
+
+@import "utils/variables";
+@import "utils/functions";
+@import "utils/helpers";
+@import "utils/mixins";
