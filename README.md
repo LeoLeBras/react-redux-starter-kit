@@ -1,4 +1,7 @@
 # react-starter-kit
+A starter kit for made effective react.js webapp. Initially based on
+[website-starter-kit](https://github.com/LeoLeBras/website-starter-kit.git) and
+inspired by the [react-hot-boilerplate(https://github.com/gaearon/react-hot-boilerplate.git).
 
 ## Install
 
