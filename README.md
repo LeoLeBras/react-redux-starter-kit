@@ -33,4 +33,10 @@ $ npm run build                # or: env UV_THREADPOOL_SIZE=100 BABEL_ENV=produc
 Coming soon ...
 
 ## Roadmap
-Coming soon ...
+* Create a documentation
+* Add redux-actions
+* Add redux-devtools
+* Add react-router with a client-side routing approach
+* Handle to a client-side and server-side webapp = universal (aka "isomorphic")
+* Add thunk and promise middlewares
+* Create examples
