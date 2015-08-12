@@ -1,6 +1,12 @@
-export default function samples(state = [], action){
-    switch(action.type){
-        default:
-            return state;
-    }
-}
+import { handleActions } from 'redux-actions';
+import {
+    SAMPLE
+} from 'constants/ActionTypes';
+
+const samples = handleActions({
+    [SAMPLE]: (state) => (
+        state
+    )
+}, []);
+
+export default samples;
