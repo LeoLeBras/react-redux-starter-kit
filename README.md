@@ -14,7 +14,7 @@ $ cd myAwesomeApp
 $ npm install                   # Install Node.js components listed in ./package.json
 ```
 
-### How to use (dev mode) ?
+### How to use dev mode ?
 
 ```shell
 $ npm start                     # or: env UV_THREADPOOL_SIZE=100 node server.js
@@ -22,7 +22,7 @@ $ npm start                     # or: env UV_THREADPOOL_SIZE=100 node server.js
 
 This will start a lightweight development server (webpack dev server) on **http://localhost:3000** (with live hot reloading).
 
-### How to build (production mode) ?
+### How to build for production ?
 
 ```shell
 $ npm run build                # or: env UV_THREADPOOL_SIZE=100 BABEL_ENV=production webpack --production
