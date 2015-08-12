@@ -17,7 +17,7 @@ $ npm install                   # Install Node.js components listed in ./package
 ### How to use dev mode ?
 
 ```shell
-$ npm start                     # or: env UV_THREADPOOL_SIZE=100 node server.js
+$ npm start                     # or: env UV_THREADPOOL_SIZE=100 DEBUG=true NODE_ENV=DEV node server.js
 ```
 
 This will start a lightweight development server (webpack dev server) on **http://localhost:3000** (with live hot reloading).
@@ -25,7 +25,7 @@ This will start a lightweight development server (webpack dev server) on **http:
 ### How to build for production ?
 
 ```shell
-$ npm run build                # or: env UV_THREADPOOL_SIZE=100 BABEL_ENV=production webpack --production
+$ npm run build                # or: env BABEL_ENV=production UV_THREADPOOL_SIZE=100 DEBUG=false NODE_ENV=CHROME webpack
 ```
 (think to delete the comments of line 6 of the html file to see all styles of your app.)
 
@@ -34,8 +34,6 @@ Coming soon ...
 
 ## Roadmap
 * Create a documentation
-* Add redux-devtools
 * Add react-router with a client-side routing approach
 * Handle to a client-side and server-side webapp = universal (aka "isomorphic")
-* Add thunk and promise middlewares
 * Create examples

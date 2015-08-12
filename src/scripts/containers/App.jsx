@@ -22,7 +22,7 @@ export default class App extends Component{
      */
     renderDevTools(){
         return (
-            <DebugPanel top left bottom>
+            <DebugPanel top right bottom>
                 <DevTools store={store} monitor={LogMonitor} />
             </DebugPanel>
         );
