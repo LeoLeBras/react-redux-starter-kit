@@ -20,7 +20,7 @@ $ npm install                   # Install Node.js components listed in ./package
 $ npm start                     # or: env UV_THREADPOOL_SIZE=100 DEBUG=true NODE_ENV=DEV node server.js
 ```
 
-This will start a lightweight development server (webpack dev server) on **http://localhost:3000** (with live hot reloading).
+This will start a lightweight development server on **http://localhost:3000** with live hot reloading.
 
 ### How to build for production ?
 
@@ -29,8 +29,8 @@ $ npm run build                # or: env BABEL_ENV=production UV_THREADPOOL_SIZE
 ```
 (think to delete the comments of line 6 of the html file to see all styles of your app.)
 
-## Documentation
-Coming soon ...
+## Features
+...
 
 ## Roadmap
 * Create a documentation
