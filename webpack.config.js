@@ -3,14 +3,16 @@ var path = require('path'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 
-var production = process.argv.indexOf("--production") > -1;
+var dev = (process.env.NODE_ENV === 'DEV' ? true : false);
+var debug = (process.env.DEBUG === 'true' ? true : false);
+var production = (process.env.NODE_ENV === 'CHROME' ? true : false);
 
 module.exports = {
     server: {
         port: 3000,
         url: 'localhost',
         hot: true,
-        historyApiFallback: true,
+        historyApiFallback: true
     },
     entry: production ? ['./src/index'] :
         ['webpack-dev-server/client?http://localhost:3000', 'webpack/hot/only-dev-server', './src/index'],
@@ -34,7 +36,8 @@ module.exports = {
             test: /\.jsx?$/,
             loaders: production ? ['babel'] : ['react-hot', 'babel'],
             include: path.join(__dirname, 'src')
-        },{
+        },
+        {
             test: /\.(scss|css)$/,
             loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?outputStyle=expanded&' +
                       'includePaths[]=' +
@@ -43,13 +46,15 @@ module.exports = {
                         (path.resolve(__dirname, './src/assets/stylesheets/')) + '&' +
                       'includePaths[]=' +
                         (path.resolve(__dirname, './src/assets/images/'))
-        )},{
+        )},
+        {
             test: /.*\.(gif|png|jpe?g|svg)$/i,
             loaders: [
               'url?limit=10000&name=[name]-[sha512:hash:base64:7].[ext]',
               'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
             ]
-        },{
+        },
+        {
             test: /.*\.(ttf|woff)$/i,
             loader: 'url?limit=150000&name=[name].[ext]'
         }]
@@ -59,21 +64,22 @@ module.exports = {
         new ExtractTextPlugin('style.css', {disable: !production}),
         new webpack.DefinePlugin({
            __PROD__: production,
-           __DEV__: !production
-         }),
+           __DEV__: dev,
+           __DEBUG__: debug
+         })
     ].concat(
         production ? [
             new webpack.optimize.UglifyJsPlugin({
               compress: {
-                warnings: false,
-              },
-            }),
+                warnings: false
+              }
+            })
         ] : [
             new webpack.HotModuleReplacementPlugin(),
             new webpack.NoErrorsPlugin()
         ]
     ),
-    postcss : function(){
+    postcss: function(){
         var autoprefixer = require('autoprefixer-core');
         return [
             autoprefixer({ browsers: ['last 2 versions'] })

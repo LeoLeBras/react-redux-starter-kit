@@ -34,7 +34,6 @@ Coming soon ...
 
 ## Roadmap
 * Create a documentation
-* Add redux-actions
 * Add redux-devtools
 * Add react-router with a client-side routing approach
 * Handle to a client-side and server-side webapp = universal (aka "isomorphic")
