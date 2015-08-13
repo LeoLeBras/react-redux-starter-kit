@@ -30,8 +30,8 @@ $ npm run build                # or: env BABEL_ENV=production UV_THREADPOOL_SIZE
 (think to delete the comments of line 6 of the html file to see all styles of your app.)
 
 ## Features
-...
-
-## Roadmap
-* Create a documentation
-* Create examples
+* React.js
+* Redux
+* Redux dev-tools
+* React-router
+* Live hot reloading with webopack-dev-server and react-hot-loader
