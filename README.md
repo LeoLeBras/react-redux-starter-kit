@@ -34,6 +34,4 @@ $ npm run build                # or: env BABEL_ENV=production UV_THREADPOOL_SIZE
 
 ## Roadmap
 * Create a documentation
-* Add react-router with a client-side routing approach
-* Handle to a client-side and server-side webapp = universal (aka "isomorphic")
 * Create examples
