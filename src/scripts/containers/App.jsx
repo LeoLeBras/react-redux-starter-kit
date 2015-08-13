@@ -3,7 +3,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import promiseMiddleware from 'middlewares/promiseMiddleware';
 import * as reducers from 'reducers/';
-import SampleApp from 'SampleApp';
+import Wrapper from 'Wrapper/';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 let cs = createStore;
@@ -45,7 +45,7 @@ export default class App extends Component{
             <div>
                 <Provider store={store}>
                     {() =>
-                        <SampleApp />
+                        <Wrapper />
                     }
                 </Provider>
                 { devTools }

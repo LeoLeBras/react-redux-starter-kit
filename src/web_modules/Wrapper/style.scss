@@ -1,11 +1,11 @@
 /**
- * Sample style component
+ * Wrapper style component
  *
  */
 
 @import 'core';
 
-.Sample{
+.Wrapper{
 	display: flex;
 	min-height: 100vh;
 	background: $default-backgroundColor;
@@ -15,5 +15,10 @@
 		text-transform: uppercase;
 		font-size: 28px;
 		color: $default-fontColor;
+
+		a{
+			color: $default-fontColor;
+			text-decoration: none;
+		}
 	}
 }
