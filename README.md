@@ -22,12 +22,13 @@ $ npm start                     # or: env UV_THREADPOOL_SIZE=100 DEBUG=true NODE
 
 This will start a lightweight development server on **http://localhost:3000** with live hot reloading.
 
+
 ##### How to build for production ?
 
 ```shell
 $ npm run build                # or: env BABEL_ENV=production UV_THREADPOOL_SIZE=100 DEBUG=false NODE_ENV=CHROME webpack
 ```
-(think to delete the comments of line 6 of the html file to see all styles of your app.)
+
 
 ## Features
 * React.js
