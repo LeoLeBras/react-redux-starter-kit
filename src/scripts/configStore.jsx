@@ -1,6 +1,4 @@
-import React from 'react';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import promiseMiddleware from 'middlewares/promiseMiddleware';
 import * as reducers from 'reducers/';
 import { routerStateReducer } from 'redux-react-router';
