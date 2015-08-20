@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import promiseMiddleware from 'middlewares/promiseMiddleware';
-import * as reducers from 'reducers/';
 import Wrapper from 'Wrapper/';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
-
-let cs = createStore;
-if(__DEBUG__){
-    cs = compose(require('redux-devtools').devTools(), createStore);
-}
-const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(cs);
-const store = createStoreWithMiddleware(combineReducers(reducers));
+import { store } from 'configStore';
 
 export default class App extends Component{
 
@@ -45,7 +36,7 @@ export default class App extends Component{
             <div>
                 <Provider store={store}>
                     {() =>
-                        <Wrapper />
+                        <Wrapper children={ this.props.children } />
                     }
                 </Provider>
                 { devTools }

@@ -21,7 +21,7 @@ export default class Wrapper extends Component{
         return (
             <div className="Wrapper">
                 <div className="Wrapper_content">
-                    <RouteHandler />
+                    { this.props.children }
                 </div>
             </div>
         );

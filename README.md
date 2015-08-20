@@ -34,5 +34,5 @@ $ npm run build                # or: env BABEL_ENV=production UV_THREADPOOL_SIZE
 * React.js
 * Redux
 * Redux dev-tools
-* React-router
+* React-router with redux-react-router
 * Live hot reloading with webopack-dev-server and react-hot-loader
