@@ -12,11 +12,15 @@ export default class App extends Component{
      * @return JSX
      */
     renderDevTools(){
-        return (
-            <DebugPanel top right bottom>
-                <DevTools store={store} monitor={LogMonitor} />
-            </DebugPanel>
-        );
+        if(__DEBUG__){
+            const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
+
+            return (
+                <DebugPanel top right bottom>
+                    <DevTools store={ store } monitor={LogMonitor} />
+                </DebugPanel>
+            );
+        }
     }
 
 
@@ -27,11 +31,6 @@ export default class App extends Component{
      * @return JSX
      */
     render(){
-        let devTools;
-        if(__DEBUG__){
-            devTools =  this.renderDevTools();
-        }
-
         return (
             <div>
                 <Provider store={store}>
@@ -39,7 +38,7 @@ export default class App extends Component{
                         <Wrapper children={ this.props.children } />
                     }
                 </Provider>
-                { devTools }
+                { this.renderDevTools() }
             </div>
         );
     }
