@@ -1,25 +1,28 @@
 var path = require('path'),
     webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    PathRewriterPlugin = require('webpack-path-rewriter'),
+    Clean = require('clean-webpack-plugin'),
     NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 
 var dev = (process.env.NODE_ENV === 'DEV' ? true : false);
 var debug = (process.env.DEBUG === 'true' ? true : false);
-var production = (process.env.NODE_ENV === 'CHROME' ? true : false);
+var production = (process.env.NODE_ENV === 'PROD' ? true : false);
 
 module.exports = {
+    devTools: (dev ? 'eval' : ''),
     server: {
-        port: 3000,
+        port: 8000,
         url: 'localhost',
         hot: true,
         historyApiFallback: true
     },
     entry: production ? ['./src/index'] :
-        ['webpack-dev-server/client?http://localhost:3000', 'webpack/hot/only-dev-server', './src/index'],
+        ['webpack-hot-middleware/client', './src/index'],
     output: {
         path: path.join(__dirname, '__build__'),
-        filename: 'app.js',
-        publicPath: '/__build__/'
+        filename: 'app-[hash].js',
+        publicPath: ''
     },
     resolve: {
         extensions: ['', '.js', '.jsx', '.scss'],
@@ -27,6 +30,7 @@ module.exports = {
             'src/web_modules',
             'node_modules',
             'src/assets',
+            'src/assets/stylesheets/base',
             'src/scripts',
             'src/scripts/containers'
         ]
@@ -34,12 +38,16 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.jsx?$/,
-            loaders: production ? ['babel'] : ['react-hot', 'babel'],
+            loaders: ['babel'],
             include: path.join(__dirname, 'src')
         },
         {
+            test: /\.json?$/,
+            loaders: ['json']
+        },
+        {
             test: /\.(scss|css)$/,
-            loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?outputStyle=expanded&' +
+            loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=' + (dev ? '[name]__[local]___[hash:base64:5]' : '[hash:base64:10]') + '!postcss!sass?outputStyle=expanded&' +
                       'includePaths[]=' +
                         (path.resolve(__dirname, './src/assets/fonts/')) + '&' +
                       'includePaths[]=' +
@@ -50,18 +58,25 @@ module.exports = {
         {
             test: /.*\.(gif|png|jpe?g|svg)$/i,
             loaders: [
-              'url?limit=10000&name=[name]-[sha512:hash:base64:7].[ext]',
+              'url?limit=1000&name=[name]-[sha512:hash:base64:7].[ext]',
               'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
             ]
         },
         {
-            test: /.*\.(ttf|woff)$/i,
-            loader: 'url?limit=150000&name=[name].[ext]'
+            test: /.*\.(otf|ttf|woff|woff2)$/i,
+            loader: 'url?limit=1500&name=[name].[ext]'
+        },
+        {
+            test: /[.]html$/,
+            loader: PathRewriterPlugin.rewriteAndEmit({
+                name: '[name].html'
+            })
         }]
     },
     plugins: [
         new NyanProgressPlugin(),
-        new ExtractTextPlugin('style.css', {disable: !production}),
+        new ExtractTextPlugin('app-[hash].css'),
+        new PathRewriterPlugin(),
         new webpack.DefinePlugin({
            __PROD__: production,
            __DEV__: dev,
@@ -69,20 +84,18 @@ module.exports = {
          })
     ].concat(
         production ? [
-            new webpack.optimize.UglifyJsPlugin({
-              compress: {
-                warnings: false
-              }
-            })
+            new webpack.optimize.UglifyJsPlugin(),
+            new Clean(['__build__'])
         ] : [
             new webpack.HotModuleReplacementPlugin(),
             new webpack.NoErrorsPlugin()
         ]
     ),
     postcss: function(){
-        var autoprefixer = require('autoprefixer-core');
         return [
-            autoprefixer({ browsers: ['last 2 versions'] })
+            require('autoprefixer')({
+                browsers: '> 98%'
+            })
         ];
     }
 

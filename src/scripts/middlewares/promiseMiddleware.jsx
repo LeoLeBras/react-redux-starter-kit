@@ -1,4 +1,9 @@
-export default function promiseMiddleware(objMethods){
+/**
+ * Promise Middleware
+ *
+ * @return {func} next()
+ */
+export default function promiseMiddleware() {
     return (next) => (action) => {
         const { promise, types, ...rest } = action;
         if (!promise) {
@@ -6,6 +11,7 @@ export default function promiseMiddleware(objMethods){
         }
         const [REQUEST, SUCCESS, ERROR] = types;
         next({ ...rest, type: REQUEST });
+
         return promise.then(
             (response) => next({ ...rest, response, type: SUCCESS }),
             (error) => next({ ...rest, error, type: ERROR })

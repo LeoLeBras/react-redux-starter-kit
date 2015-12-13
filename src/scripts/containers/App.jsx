@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
-import { store } from 'configStore';
-import Router, { Route } from 'react-router';
-import { history } from 'react-router/lib/BrowserHistory';
+import { Router } from 'react-router';
+import { syncReduxAndRouter } from 'redux-simple-router';
 import { routes } from 'routes';
-import { reduxRouteComponent } from 'redux-react-router';
+import createHistory from 'history/lib/createHashHistory';
+import configureStore from 'configStore';
+
+const store = configureStore();
+const history = createHistory();
+syncReduxAndRouter(history, store)
 
 export default class App extends Component{
 
     /**
-     * Render
+     * Render <DevTools /> component
      *
-     * @return JSX
+     * @return {jsx}
      */
-    renderDevTools(){
+    _renderDevTools(){
         if(__DEBUG__){
-            const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
-
-            return (
-                <DebugPanel top right bottom>
-                    <DevTools store={ store } monitor={LogMonitor} />
-                </DebugPanel>
-            );
+            const DevTools = require('./DevTools');
+            return ( <DevTools /> );
         }
     }
 
@@ -31,22 +29,19 @@ export default class App extends Component{
     /**
      * Render
      *
-     * @return JSX
+     * @return {jsx}
      */
-    render(){
-        const RouteComponent = reduxRouteComponent(store);
-
+    render() {
         return (
-            <div>
-                <Provider store={ store }>
-                    {() =>
-                        <Router history={ history }>
-                            <Route component={ RouteComponent } childRoutes={ routes } />
-                        </Router>
-                    }
-                </Provider>
-                { this.renderDevTools() }
-            </div>
+            <Provider store={ store }>
+                <div>
+                    <Router history={ history }>
+                        { routes }
+                    </Router>
+                    { this._renderDevTools() }
+                </div>
+            </Provider>
         );
     }
+
 }

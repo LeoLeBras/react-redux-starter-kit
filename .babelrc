@@ -1,4 +1,21 @@
 {
   "stage": 0,
-  "env": {}
+  "env": {
+    "production": {
+      "optional": ["runtime", "optimisation.react.constantElements"]
+    },
+    "development": {
+      "plugins": ["react-transform"],
+        "extra": {
+          "react-transform": [{
+            "target": "react-transform-hmr",
+            "imports": ["react"],
+            "locals": ["module"]
+        }, {
+          "target": "react-transform-catch-errors",
+          "imports": ["react", "redbox-react"]
+        }]
+      }
+    }
+  },
 }

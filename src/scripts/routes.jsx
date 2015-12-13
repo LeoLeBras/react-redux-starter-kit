@@ -1,12 +1,8 @@
 import React from 'react';
-import Wrapper from 'Wrapper';
-import Foo from 'Foo/';
-import Bar from 'Bar/';
+import { Route } from 'react-router';
 
-export const routes = {
-    component: Wrapper,
-    childRoutes: [
-        { path: '/', component: Foo },
-        { path: '/bar', component: Bar },
-    ]
-};
+export const routes = (
+    <Route path='' component={ require('Wrapper/') }>
+        <Route path='*' component={ require('Welcome/') } />
+    </Route>
+);
