@@ -1,5 +1,5 @@
-# react-native-redux-starter-kit
-Get started with React Native and Redux.
+# react-redux-starter-kit
+Get started with React.js and Redux.
 
 ## Requirements
 - Node.js 5.x or newer
@@ -23,7 +23,7 @@ $ npm i                         # Install Node.js components listed in ./package
 
 ##### How to use ?
 ```shell
-$ npm start                     # or: env DEBUG=true NODE_ENV=DEV react-native-webpack-server start
+$ npm start                     # or: env BABEL_ENV=development UV_THREADPOOL_SIZE=100 DEBUG=true NODE_ENV=DEV node server.js
 ```
 
 This will start a lightweight development server (webpack dev server) with live reloading.
@@ -32,8 +32,4 @@ Then open `App.xcodeproj` in Xcode, build and run the project.
 
 ##### How to build for production ?
 ```shell
-$ npm run build                # or: env BABEL_ENV=production NODE_ENV=PROD react-native-webpack-server bundle
-```
-
-## Issues
-If you run into any issues please see the [Getting Started](http://facebook.github.io/react-native/docs/getting-started.html) guide for React Native before submitting an issue.
+$ npm run build                # or: env BABEL_ENV=production UV_THREADPOOL_SIZE=100 DEBUG=false NODE_ENV=PROD webpack```
