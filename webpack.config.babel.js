@@ -1,16 +1,16 @@
-var path = require('path'),
-    webpack = require('webpack'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    PathRewriterPlugin = require('webpack-path-rewriter'),
-    Clean = require('clean-webpack-plugin'),
-    NyanProgressPlugin = require('nyan-progress-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import PathRewriterPlugin from 'webpack-path-rewriter';
+import Clean from 'clean-webpack-plugin';
+import NyanProgressPlugin from 'nyan-progress-webpack-plugin';
 
-var dev = (process.env.NODE_ENV === 'DEV' ? true : false);
-var debug = (process.env.DEBUG === 'true' ? true : false);
-var production = (process.env.NODE_ENV === 'PROD' ? true : false);
+const dev = process.env.NODE_ENV === 'DEV' ? true : false;
+const debug = process.env.DEBUG === 'true' ? true : false;
+const production = process.env.NODE_ENV === 'PROD' ? true : false;
 
-module.exports = {
-    devTools: (dev ? 'eval' : ''),
+export default {
+    devTools: dev ? 'eval' : '',
     server: {
         port: 8000,
         url: 'localhost',
@@ -91,12 +91,9 @@ module.exports = {
             new webpack.NoErrorsPlugin()
         ]
     ),
-    postcss: function(){
-        return [
-            require('autoprefixer')({
-                browsers: '> 98%'
-            })
-        ];
-    }
-
+    postcss: () => ([
+        require('autoprefixer')({
+            browsers: '> 98%'
+        })
+    ])
 };
