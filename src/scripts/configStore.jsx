@@ -1,14 +1,11 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import promiseMiddleware from 'middlewares/promiseMiddleware';
 import * as reducers from 'reducers/';
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router';
 
 let cs = createStore;
-if(__DEBUG__){
-    cs = compose(
-        require('DevTools').instrument,
-    )(createStore);
-}
+if(__DEBUG__)
+    cs = require('DevTools').default.instrument()(createStore);
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(cs);
 const store = createStoreWithMiddleware(combineReducers({

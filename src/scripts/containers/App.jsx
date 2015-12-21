@@ -6,8 +6,6 @@ import routes from 'routes';
 import createHistory from 'history/lib/createHashHistory';
 import configureStore from 'configStore';
 
-import DevTools from './DevTools';
-
 const store = configureStore();
 const history = createHistory();
 syncReduxAndRouter(history, store)
@@ -20,7 +18,10 @@ export default class App extends Component{
      * @return {jsx}
      */
     _renderDevTools(){
-        return ( <DevTools /> );
+        if(__DEV__) {
+            const DevTools = require('DevTools').default;
+            return ( <DevTools /> );
+        }
     }
 
 
