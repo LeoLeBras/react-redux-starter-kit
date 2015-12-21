@@ -1,16 +1,3 @@
-/**
-** index.js entry file **
- **
- *
- * react-redux-starter-kit
- *
- * Léo Le Bras  { leo.lebraf@gmail.com }
- *
- * Work with Babel
- * http://babel.com/
- *
- */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'App';
