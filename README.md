@@ -13,10 +13,9 @@ Get started with React.js and Redux.
 
 
 ## Getting started
-Just [clone](github-windows://openRepo/https://github.com/LeoLeBras/react-native-redux-starter-kit.git) the repo
-and start :
+Just clone the repo and start:
 ```shell
-$ git clone https://github.com/LeoLeBras/react-native-redux-starter-kit.git myAwesomeApp
+$ git clone https://github.com/LeoLeBras/react-redux-starter-kit.git myAwesomeApp
 $ cd myAwesomeApp
 $ npm i                         # Install Node.js components listed in ./package.json
 ```
@@ -27,8 +26,6 @@ $ npm start                     # or: env BABEL_ENV=development UV_THREADPOOL_SI
 ```
 
 This will start a lightweight development server (webpack dev server) with live reloading.
-Then open `App.xcodeproj` in Xcode, build and run the project.
-(support for android coming soon)
 
 ##### How to build for production ?
 ```shell
