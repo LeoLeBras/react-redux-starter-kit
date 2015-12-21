@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import { syncReduxAndRouter } from 'redux-simple-router';
-import { routes } from 'routes';
+import routes from 'routes';
 import createHistory from 'history/lib/createHashHistory';
 import configureStore from 'configStore';
+
+import DevTools from './DevTools';
 
 const store = configureStore();
 const history = createHistory();
@@ -18,10 +20,7 @@ export default class App extends Component{
      * @return {jsx}
      */
     _renderDevTools(){
-        if(__DEBUG__){
-            const DevTools = require('./DevTools');
-            return ( <DevTools /> );
-        }
+        return ( <DevTools /> );
     }
 
 

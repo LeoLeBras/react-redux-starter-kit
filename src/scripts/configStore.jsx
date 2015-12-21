@@ -6,7 +6,7 @@ import { syncReduxAndRouter, routeReducer } from 'redux-simple-router';
 let cs = createStore;
 if(__DEBUG__){
     cs = compose(
-        require('DevTools').instrument(),
+        require('DevTools').instrument,
     )(createStore);
 }
 
