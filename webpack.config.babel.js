@@ -27,11 +27,12 @@ export default {
     resolve: {
         extensions: ['', '.js', '.jsx', '.scss'],
         modulesDirectories: [
-            'src/web_modules',
             'node_modules',
+            'src/web_modules',
             'src/assets',
             'src/assets/stylesheets/base',
             'src/scripts',
+            'src/scripts/views',
             'src/scripts/containers'
         ]
     },
