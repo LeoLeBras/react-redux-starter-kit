@@ -76,8 +76,8 @@ export default {
     },
     plugins: [
         new NyanProgressPlugin(),
-        new ExtractTextPlugin('app-[hash].css'),
         new PathRewriterPlugin(),
+        new ExtractTextPlugin('app-[hash].css', { disable: dev }),
         new webpack.DefinePlugin({
            __PROD__: production,
            __DEV__: dev,

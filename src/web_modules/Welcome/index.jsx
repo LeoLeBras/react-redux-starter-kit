@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styles from './Welcome';
 
 const Welcome = () => (
-    <div>
-        Hello ! ;)
+    <div className={ styles.container }>
+        Hello !
     </div>
 );
 

@@ -4,7 +4,7 @@
   "description": "Get started with React.js and Redux.",
   "scripts": {
     "start": "env BABEL_ENV=development UV_THREADPOOL_SIZE=100 DEBUG=true NODE_ENV=DEV node server.js",
-    "build": "env BABEL_ENV=production UV_THREADPOOL_SIZE=100 DEBUG=false NODE_ENV=PROD webpack webpack.config.babel."
+    "build": "env BABEL_ENV=production UV_THREADPOOL_SIZE=100 DEBUG=false NODE_ENV=PROD webpack"
   },
   "repository": {
     "type": "git",
