@@ -7,7 +7,7 @@ Get started with React.js and Redux.
 ## Stack
 - [React.js](https://facebook.github.io/react/) `^0.14.3` a javascript library for building user interfaces
 - [React-Redux](http://rackt.github.io/redux/index.html) `^4.0.1` a predictable state container for Javascript apps
-- [Babel](http://babeljs.io/) `5.x.x` for ES6+ support
+- [Babel](http://babeljs.io/) `6.x.x` for ES6+ support
 - [Immutable](https://facebook.github.io/immutable-js/) Immutable persistent data collections for Javascript
 - [Webpack](https://webpack.github.io/) module loader and bundler
 
