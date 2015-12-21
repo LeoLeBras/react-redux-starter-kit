@@ -14,7 +14,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.html';
 import App from 'App';
+if(__PROD__) require('.index.html');
 
 ReactDOM.render(<App />, document.querySelector('.WinoManager__9EAzG'));
