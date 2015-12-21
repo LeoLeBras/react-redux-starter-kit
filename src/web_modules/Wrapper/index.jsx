@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styles from './Wrapper'
 
-const Wrapper = (props) => (
+const Wrapper = ({ children }) => (
     <div className={ styles.container }>
-        { props.children }
+        { children }
     </div>
 );
 
