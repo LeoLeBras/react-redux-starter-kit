@@ -1,8 +1,8 @@
-/**
- * Welcome style component
- *
- */
+@value defaultTextColor: #316069;
 
-.container {
-    font-weight: bold;
+.container{
+    margin: auto;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    color: defaultTextColor;
 }

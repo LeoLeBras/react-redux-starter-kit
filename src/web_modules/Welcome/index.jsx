@@ -3,7 +3,7 @@ import styles from './Welcome';
 
 const Welcome = () => (
     <div className={ styles.container }>
-        Hello !
+        It works \o/ !
     </div>
 );
 
