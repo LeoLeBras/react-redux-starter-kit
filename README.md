@@ -32,4 +32,5 @@ Then open `App.xcodeproj` in Xcode, build and run the project.
 
 ##### How to build for production ?
 ```shell
-$ npm run build                # or: env BABEL_ENV=production UV_THREADPOOL_SIZE=100 DEBUG=false NODE_ENV=PROD webpack```
+$ npm run build                 # or: env BABEL_ENV=production UV_THREADPOOL_SIZE=100 DEBUG=false NODE_ENV=PROD webpack
+```
