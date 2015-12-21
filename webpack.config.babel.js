@@ -25,7 +25,7 @@ export default {
         publicPath: ''
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.scss'],
+        extensions: ['', '.js', '.jsx', '.css'],
         modulesDirectories: [
             'node_modules',
             'src/web_modules',
@@ -47,15 +47,13 @@ export default {
             loaders: ['json']
         },
         {
-            test: /\.(scss|css)$/,
-            loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=' + (dev ? '[name]__[local]___[hash:base64:5]' : '[hash:base64:10]') + '!postcss!sass?outputStyle=expanded&' +
-                      'includePaths[]=' +
-                        (path.resolve(__dirname, './src/assets/fonts/')) + '&' +
-                      'includePaths[]=' +
-                        (path.resolve(__dirname, './src/assets/stylesheets/')) + '&' +
-                      'includePaths[]=' +
-                        (path.resolve(__dirname, './src/assets/images/'))
-        )},
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract(
+                'style',
+                'css?modules&importLoaders=1&localIdentName=' + (dev ? '[name]__[local]___[hash:base64:5]' : '[hash:base64:8]') + '!' +
+                'postcss'
+            )
+        },
         {
             test: /.*\.(gif|png|jpe?g|svg)$/i,
             loaders: [
@@ -64,7 +62,7 @@ export default {
             ]
         },
         {
-            test: /.*\.(otf|ttf|woff|woff2)$/i,
+            test: /.*\.(woff|woff2)$/i,
             loader: 'url?limit=1500&name=[name].[ext]'
         },
         {
