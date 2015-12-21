@@ -1,15 +1,14 @@
 /**
  ** index.js entry file **
  *
- * Wino Technologies S.A.S.
+ * react-redux-starter-kit
  *
  * Léo Le Bras [leo.lebraf@gmail.com]
  *
  * Work with Babel
  * http://babel.com/
  *
- * Copyright 2015
- * All rights reserved
+ * MIT 2015
  *
  */
 
