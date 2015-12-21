@@ -21,7 +21,7 @@ export default {
         ['webpack-hot-middleware/client', './src/index'],
     output: {
         path: path.join(__dirname, '__build__'),
-        filename: 'app-[hash].js',
+        filename: production ? 'app-[hash].js' : 'app.js',
         publicPath: ''
     },
     resolve: {
