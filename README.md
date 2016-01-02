@@ -1,4 +1,7 @@
 # react-redux-starter-kit
+[![Dependency Status](https://david-dm.org/LeoLeBras/react-redux-starter-kit.svg?style=flat)](https://david-dm.org/LeoLeBras/react-redux-starter-kit)
+[![devDependency Status](https://david-dm.org/LeoLeBras/react-redux-starter-kit/dev-status.svg?style=flat)](https://david-dm.org/LeoLeBras/react-redux-starter-kit#info=devDependencies)
+
 Get started with React.js and Redux.
 
 ## Requirements
